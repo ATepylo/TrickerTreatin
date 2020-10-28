@@ -10,7 +10,7 @@ public class Candy1 : MonoBehaviour
     [SerializeField]
     private float fallSpeed;
 
-    private Games game;
+    private Game1 game;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Candy1 : MonoBehaviour
     private void OnEnable()
     {
         fallSpeed = 1;
-        game = GetComponentInParent<Games>();
+        game = GetComponentInParent<Game1>();
     }
 
     // Update is called once per frame
@@ -43,12 +43,17 @@ public class Candy1 : MonoBehaviour
     {
         if(collision.gameObject.layer == 11 && currentState == HoldState.released)
         {
-            
+            game.ScoreCandy();
             collision.gameObject.GetComponent<Bags>().RemoveBag();
+            Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
         else if(collision.gameObject.layer == 12 && currentState == HoldState.released)
         {
+            if(gameObject.name == "lastCandy")
+            {
+                game.GameOver();
+            }
             Destroy(this.gameObject);
         }
     }

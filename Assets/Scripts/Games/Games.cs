@@ -28,6 +28,7 @@ public class Games : MonoBehaviour
             print("???");
             //game over
             roomScript.EggHouse();
+            roomScript.currentState = MainRoom.GameState.knock;
             this.gameObject.SetActive(false);
             this.enabled = false;
         }

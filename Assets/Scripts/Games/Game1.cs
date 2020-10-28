@@ -15,12 +15,31 @@ public class Game1 : Games
 
     [SerializeField]
     private float handSpeed;
-   
+
+    private bool failedGame;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+    }
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        //reset game on enable
+        maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
+        //instatiate bags here, once we have sprites
+        //for(int i = 0; 1 < maxBags; i++)
+        //{
+        //    Instantiate()
+        //}
+        maxCandies = maxBags + 1;
+        handSpeed = 1 * roomScript.gameSpeed;
+        candy = Instantiate(candyPrefab, hand.transform);
+        candiesSpawned = 1;
+        bagsHit = 0;
+        failedGame = false;
     }
 
     // Update is called once per frame
@@ -55,21 +74,8 @@ public class Game1 : Games
             {
                 Release();
             }
-        }
-        
-    }
-
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        //reset game on enable
-        maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
-        //instatiate bags here
-        maxCandies = maxBags + 1;
-        handSpeed = 1 * roomScript.gameSpeed;
-        candy = Instantiate(candyPrefab, hand.transform);
-        candiesSpawned = 1;
-    }
+        }        
+    }    
 
     public void Release()
     {
@@ -92,10 +98,42 @@ public class Game1 : Games
     {
         candy = Instantiate(candyPrefab, hand.transform);
         candiesSpawned++;
+        if(candiesSpawned == maxCandies)
+        {
+            candy.gameObject.name = "lastCandy";
+        }
     }
 
     public override void OnDisable()
     {
         base.OnDisable();
+    }
+
+    public void ScoreCandy()
+    {
+        bagsHit++;
+        if(bagsHit >= maxBags)
+        {
+            StartCoroutine(EndMiniGame());
+        }
+    }
+
+    public void GameOver()
+    {
+        failedGame = true;
+        StartCoroutine(EndMiniGame());
+    }
+
+    IEnumerator EndMiniGame()
+    {
+        yield return new WaitForSeconds(1);
+        if(failedGame)
+        {
+            roomScript.EggHouse();
+        }
+        roomScript.AddtoKidCound(bagsHit);
+        roomScript.currentState = MainRoom.GameState.knock;
+        this.gameObject.SetActive(false);
+        this.enabled = false;
     }
 }

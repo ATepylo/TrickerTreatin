@@ -16,6 +16,14 @@ public class MainRoom : MonoBehaviour
 
     public float gameSpeed;
 
+    [SerializeField]
+    private int kidsWCandy;
+    public void AddtoKidCound(int i)
+    {
+        kidsWCandy += i;
+    }
+
+
     //for knock state
     [SerializeField]
     private float knockTimer;
@@ -32,6 +40,7 @@ public class MainRoom : MonoBehaviour
         gameSpeed = 1;
         knockTimer = 0;
         waitTimer = 0;
+        kidsWCandy = 0;
     }
 
     // Update is called once per frame
