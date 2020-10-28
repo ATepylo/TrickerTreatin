@@ -16,15 +16,10 @@ public class Game1 : Games
     [SerializeField]
     private float handSpeed;
 
-    [SerializeField]
-    private float gameLength;
+    
+    
 
-    [SerializeField]
-    private int maxCandies;
-    [SerializeField]
-    private int candiesSpawned;
-    [SerializeField]
-    private int maxBags;
+   
 
     // Start is called before the first frame update
     public override void Start()
@@ -33,8 +28,9 @@ public class Game1 : Games
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
         switch(currentDir)
         {
             case MoveDir.left:
@@ -59,7 +55,10 @@ public class Game1 : Games
 
         if(Input.GetButtonDown("Jump"))
         {
-            Release();
+            if (candy)
+            {
+                Release();
+            }
         }
         
     }
@@ -67,8 +66,11 @@ public class Game1 : Games
     public override void OnEnable()
     {
         base.OnEnable();
-        handSpeed = 1 * roomScript.gameSpeed;
         //reset game on enable
+        maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
+        //instatiate bags here
+        maxCandies = maxBags + 1;
+        handSpeed = 1 * roomScript.gameSpeed;
         candy = Instantiate(candyPrefab, hand.transform);
         candiesSpawned = 1;
     }
@@ -78,5 +80,26 @@ public class Game1 : Games
         candy.transform.parent = null;
         candy.GetComponent<Candy1>().currentState = Candy1.HoldState.released;
         candy = null;
+        if(candiesSpawned < maxCandies)
+        {
+            StartCoroutine(CandyWait());
+        }
+    }
+
+    IEnumerator CandyWait()
+    {
+        yield return new WaitForSeconds(1);
+        NewCandy();
+    }
+
+    public void NewCandy()
+    {
+        candy = Instantiate(candyPrefab, hand.transform);
+        candiesSpawned++;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
     }
 }
