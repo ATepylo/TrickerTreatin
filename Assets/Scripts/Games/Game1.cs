@@ -15,10 +15,6 @@ public class Game1 : Games
 
     [SerializeField]
     private float handSpeed;
-
-    
-    
-
    
 
     // Start is called before the first frame update
