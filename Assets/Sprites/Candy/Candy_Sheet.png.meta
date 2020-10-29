@@ -1,0 +1,524 @@
+fileFormatVersion: 2
+guid: ae7519478cc1e6146939d666cca685c4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7719714379315596541
+    second: Candy_Sheet_0
+  - first:
+      213: -7172294626829541627
+    second: Candy_Sheet_1
+  - first:
+      213: 4550744916739934006
+    second: Candy_Sheet_2
+  - first:
+      213: -6264445798838949286
+    second: Candy_Sheet_3
+  - first:
+      213: -4630279150873264658
+    second: Candy_Sheet_4
+  - first:
+      213: 2320924049255533214
+    second: Candy_Sheet_5
+  - first:
+      213: 3702916109152812486
+    second: Candy_Sheet_6
+  - first:
+      213: 84416088525497660
+    second: Candy_Sheet_7
+  - first:
+      213: 7660148594525178017
+    second: Candy_Sheet_8
+  - first:
+      213: -5553709130564265210
+    second: Candy_Sheet_9
+  - first:
+      213: 4111475781591222302
+    second: Candy_Sheet_10
+  - first:
+      213: 1625147356376014357
+    second: Candy_Sheet_11
+  - first:
+      213: -5865468286022169761
+    second: Candy_Sheet_12
+  - first:
+      213: 9079817124221841684
+    second: Candy_Sheet_13
+  - first:
+      213: -567690466048811734
+    second: Candy_Sheet_14
+  - first:
+      213: 55298099912128005
+    second: Candy_Sheet_15
+  - first:
+      213: -3361051178152315888
+    second: Candy_Sheet_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Candy_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1770
+        width: 265
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcc492c35fe12b60800000000000000
+      internalID: 7719714379315596541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 1775
+        width: 265
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50fd16f8904e67c90800000000000000
+      internalID: -7172294626829541627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1859
+        width: 487
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637c2b1146e772f30800000000000000
+      internalID: 4550744916739934006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1514
+        width: 265
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a24858cb73019a0800000000000000
+      internalID: -6264445798838949286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1535
+        width: 265
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed3d4105a1fdbfb0800000000000000
+      internalID: -4630279150873264658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1707
+        width: 487
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a89824024953020800000000000000
+      internalID: 2320924049255533214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1529
+        width: 487
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdff171596636330800000000000000
+      internalID: 3702916109152812486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1275
+        width: 266
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35e3e93cf7eb2100800000000000000
+      internalID: 84416088525497660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1264
+        width: 265
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8816fbf805e4a60800000000000000
+      internalID: 7660148594525178017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1327
+        width: 487
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b9fd678f24de2b0800000000000000
+      internalID: -5553709130564265210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 679
+        width: 510
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18cd589075ee0930800000000000000
+      internalID: 4111475781591222302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 646
+        width: 510
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e157409eead8610800000000000000
+      internalID: 1625147356376014357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 657
+        width: 510
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b4452ababa99ea0800000000000000
+      internalID: -5865468286022169761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 246
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41170ca419df10e70800000000000000
+      internalID: 9079817124221841684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 225
+        width: 247
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2dd8c467882f18f0800000000000000
+      internalID: -567690466048811734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 184
+        width: 245
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5063402345574c000800000000000000
+      internalID: 55298099912128005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candy_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 0
+        width: 512
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014b256d2c52b51d0800000000000000
+      internalID: -3361051178152315888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
