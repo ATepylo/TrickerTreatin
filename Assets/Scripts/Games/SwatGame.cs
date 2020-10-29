@@ -63,6 +63,30 @@ public class SwatGame : Games
                 {
                     print("hit bag");
                     //add score and remove bag
+                    bagsHit++;
+                    candyHit.collider.gameObject.SetActive(false);
+                    int i = 0;
+                    for (int j = 0; j < bags.Count; j++)
+                    {
+                        if (bags[j] == candyHit.collider.gameObject)
+                        {
+                            i = j;
+                        }
+                    }
+                    kidHands[i].SetActive(false);
+                    //check if game has ended
+                    int count = 0;
+                    foreach (GameObject obj in bags)
+                    {
+                        if (obj.activeSelf == false)
+                        {
+                            count++;
+                        }
+                    }
+                    if (count == bags.Count)
+                    {
+                        StartCoroutine(EndMiniGame());
+                    }
                 }
             }
             
@@ -88,6 +112,45 @@ public class SwatGame : Games
         }
     }
 
+    public void DisableHands(GameObject hand)
+    {
+        int i = 0;
+        for(int j = 0; j < kidHands.Count; j++)
+        {
+            if(kidHands[j] == hand)
+            {
+                i = j;
+            }
+        }
+        hand.SetActive(false);
+        bags[i].SetActive(false);
+        //check if game has ended
+        int count = 0;
+        foreach(GameObject obj in kidHands)
+        {
+            if(obj.activeSelf == false)
+            {
+                count++;
+            }
+        }
+        if(count == kidHands.Count)
+        {
+            StartCoroutine(EndMiniGame());
+        }
+    }
 
-    
+    IEnumerator EndMiniGame()
+    {
+        yield return new WaitForSeconds(1);
+        if(bagsHit < maxBags)
+        {
+            roomScript.EggHouse();
+        }
+
+        roomScript.AddtoKidCound(bagsHit);
+        roomScript.currentState = MainRoom.GameState.knock;
+        this.gameObject.SetActive(false);
+        this.enabled = false;
+    }
+
 }

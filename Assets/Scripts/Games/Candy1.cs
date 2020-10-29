@@ -45,7 +45,7 @@ public class Candy1 : MonoBehaviour
         {
             game.ScoreCandy();
             collision.gameObject.GetComponent<Bags>().RemoveBag();
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
         else if(collision.gameObject.layer == 12 && currentState == HoldState.released)

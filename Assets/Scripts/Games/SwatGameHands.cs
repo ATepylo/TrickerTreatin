@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class SwatGameHands : MonoBehaviour
 {
-    public enum HandState { move, wait}
+    public enum HandState { move, wait, comeBack}
     public HandState currentState = HandState.wait;
 
     public GameObject candyBowl;
+    public GameObject candy;
     public Vector2 startPos;
 
     public MainRoom room; 
     [SerializeField]
     private float handSpeed;
+
+    private SwatGame game;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -21,13 +24,15 @@ public class SwatGameHands : MonoBehaviour
         SetUpHands();
         room = FindObjectOfType<MainRoom>();
         handSpeed = 1 + room.gameSpeed;
+        game = GetComponentInParent<SwatGame>();
     }
 
     public void SetUpHands()
     {
         transform.position = startPos;
         currentState = HandState.wait;
-        StartCoroutine(WaitTimer());
+        candy.SetActive(false);
+        StartCoroutine(WaitTimer());        
     }
 
     // Update is called once per frame
@@ -39,10 +44,18 @@ public class SwatGameHands : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, candyBowl.transform.position, handSpeed * Time.deltaTime);
                 if(Vector3.Distance(transform.position, candyBowl.transform.position) <= 0.5)
                 {
-                    //get rid of hand and bag
+                    candy.SetActive(true);
+                    currentState = HandState.comeBack;
                 }
                 break;
             case HandState.wait:
+                break;
+            case HandState.comeBack:
+                transform.position = Vector3.MoveTowards(transform.position, startPos, handSpeed * Time.deltaTime);
+                if(Vector3.Distance(transform.position, startPos) <= 0.2f && candy.activeSelf)
+                {
+                    game.DisableHands(this.gameObject);
+                }
                 break;
         }
     }
@@ -52,4 +65,6 @@ public class SwatGameHands : MonoBehaviour
         yield return new WaitForSeconds(2);
         currentState = HandState.move;
     }
+
+   
 }
