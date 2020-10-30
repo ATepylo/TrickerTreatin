@@ -163,7 +163,10 @@ MonoBehaviour:
   currentDir: 0
   candyPrefab: {fileID: 6703354616755621383, guid: 4b8cad9d328a5b84a8650ef93d1ae830,
     type: 3}
+  candyPos: {fileID: 0}
+  bags: []
   handSpeed: 0
+  plop: {fileID: 0}
 --- !u!212 &249454441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1071,7 +1074,13 @@ MonoBehaviour:
   eggs: 0
   miniGames:
   - {fileID: 249454439}
+  gameTimer: 0
   gameSpeed: 0
+  kidsWCandy: 0
+  knock: {fileID: 0}
+  splat: {fileID: 0}
+  creak: {fileID: 0}
+  close: {fileID: 0}
   knockTimer: 0
   knockRandom: 0
   waitTimer: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 public enum Direction { LEFT, RIGHT }
 namespace CandyCars
 {
-    public class CarSpawner : GamePiece
+    public class CarSpawner : MonoBehaviour
     {
         //spawn cars in the direction specified
         public float spawnTimeMin = 1f;

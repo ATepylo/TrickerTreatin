@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CandyCars
 {
-    public class Car : GamePiece
+    public class Car : MonoBehaviour
     {
         Rigidbody2D rb;
         public float speed = 1f;
