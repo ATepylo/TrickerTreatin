@@ -76,7 +76,7 @@ public class SwatGame : Games
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 //print("try raycast");
-                RaycastHit2D candyHit = Physics2D.Raycast(leftHand.transform.position, Vector3.forward);
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
                 if (candyHit.collider)
                 {
                     if (candyHit.collider.gameObject.layer == 11)

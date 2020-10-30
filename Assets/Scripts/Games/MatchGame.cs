@@ -69,10 +69,11 @@ public class MatchGame : Games
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "w")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "w")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -96,10 +97,11 @@ public class MatchGame : Games
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "a")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "a")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -123,10 +125,12 @@ public class MatchGame : Games
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "s")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "s")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -150,10 +154,12 @@ public class MatchGame : Games
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "d")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "d")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.SetActive(false);
                 }
                 else
                 {
