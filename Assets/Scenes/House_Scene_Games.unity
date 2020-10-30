@@ -2908,6 +2908,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 123.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7373779796329566641, guid: 62055e25817611f48b13fb5805df0374,
+        type: 3}
+      propertyPath: m_Text
+      value: Click on the door to answer.
+      objectReference: {fileID: 0}
     - target: {fileID: 7373779796329566642, guid: 62055e25817611f48b13fb5805df0374,
         type: 3}
       propertyPath: m_AnchoredPosition.x
