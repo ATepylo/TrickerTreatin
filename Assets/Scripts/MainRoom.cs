@@ -172,6 +172,7 @@ public class MainRoom : MonoBehaviour
                 {
                     //print("start game");
                     //start a random game
+                    closedDoor.GetComponent<SpriteRenderer>().enabled = false;
                     src.PlayOneShot(creak);
                     //play door open anim
                     StartCoroutine(GameStartDelay());
@@ -192,6 +193,7 @@ public class MainRoom : MonoBehaviour
     {
         //close door animation
         src.PlayOneShot(close);
+        closedDoor.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     IEnumerator GameStartDelay()
