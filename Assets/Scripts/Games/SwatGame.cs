@@ -14,6 +14,12 @@ public class SwatGame : Games
     private float leftHandSpeed;
     public GameObject rightHand;
     public GameObject candyBowl;
+    public GameObject candy;
+
+    public Transform RHstart;
+    public Transform LHstart;
+
+    public bool canDrop;
 
     private float horizontal;
     private float vertical;
@@ -28,14 +34,26 @@ public class SwatGame : Games
     {
         base.OnEnable();
         maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
-        //instatiate bags here, once we have sprites
-        //for(int i = 0; 1 < maxBags; i++)
-        //{
-        //    Instantiate()
-        //}
-        maxCandies = maxBags + 1;
+        int count = 0;
+        //setup bags
+        for (int i = 0; i < maxBags; i++)
+        {
+            bags[i].SetActive(true);
+            kidHands[i].SetActive(true);
+            count++;
+        }
+        for (int i = count; i < bags.Count; i++)
+        {
+            bags[i].SetActive(false);
+            kidHands[i].SetActive(false);
+        }
+        
 
+        maxCandies = maxBags + 1;
+        canDrop = true;
         leftHandSpeed = 5;
+        leftHand.transform.position = LHstart.position;
+        rightHand.transform.position = RHstart.position;
     }
 
     // Update is called once per frame
@@ -47,49 +65,55 @@ public class SwatGame : Games
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         float x = leftHand.transform.position.x + horizontal * leftHandSpeed * Time.deltaTime;
-        x = Mathf.Clamp(x, transform.position.x - 5, transform.position.x + 5); //update these numbers once we have sprites
+        x = Mathf.Clamp(x, transform.position.x + 2, transform.position.x + 18); //update these numbers once we have sprites
         float y = leftHand.transform.position.y + vertical * leftHandSpeed * Time.deltaTime;
-        y = Mathf.Clamp(y, transform.position.y - 3, transform.position.y + 3);
+        y = Mathf.Clamp(y, transform.position.y - 11, transform.position.y + 11);
         leftHand.transform.position = new Vector2(x, y);
 
         //drop candy
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (canDrop)
         {
-            print("try raycast");
-            RaycastHit2D candyHit = Physics2D.Raycast(leftHand.transform.position, Vector3.forward);
-            if (candyHit.collider)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (candyHit.collider.gameObject.layer == 11)
+                //print("try raycast");
+                RaycastHit2D candyHit = Physics2D.Raycast(leftHand.transform.position, Vector3.forward);
+                if (candyHit.collider)
                 {
-                    print("hit bag");
-                    //add score and remove bag
-                    bagsHit++;
-                    candyHit.collider.gameObject.SetActive(false);
-                    int i = 0;
-                    for (int j = 0; j < bags.Count; j++)
+                    if (candyHit.collider.gameObject.layer == 11)
                     {
-                        if (bags[j] == candyHit.collider.gameObject)
+                        print("hit bag");
+                        //add score and remove bag
+                        bagsHit++;
+                        candyHit.collider.gameObject.SetActive(false);
+                        int i = 0;
+                        int count = 0;
+                        for (int j = 0; j < bags.Count; j++)
                         {
-                            i = j;
+                            if (bags[j] == candyHit.collider.gameObject)
+                            {
+                                i = j;
+                                count++;
+                            }
                         }
-                    }
-                    kidHands[i].SetActive(false);
-                    //check if game has ended
-                    int count = 0;
-                    foreach (GameObject obj in bags)
-                    {
-                        if (obj.activeSelf == false)
+                        kidHands[i].SetActive(false);
+                        //check if game has ended
+                        //foreach (GameObject obj in bags)
+                        //{
+                        //    if (obj.activeSelf == false)
+                        //    {
+                        //        count++;
+                        //    }
+                        //}
+                        if (count == maxBags)
                         {
-                            count++;
+                            StartCoroutine(EndMiniGame());
                         }
-                    }
-                    if (count == bags.Count)
-                    {
-                        StartCoroutine(EndMiniGame());
                     }
                 }
+                canDrop = false;
+                candy.SetActive(false);
+                StartCoroutine(DropCoolDown());
             }
-            
         }
 
         //update position of right hand
@@ -149,8 +173,17 @@ public class SwatGame : Games
 
         roomScript.AddtoKidCound(bagsHit);
         roomScript.currentState = MainRoom.GameState.knock;
+        roomScript.SetKnockTimer(0);
+        roomScript.CloseDoor();
         this.gameObject.SetActive(false);
         this.enabled = false;
+    }
+
+    IEnumerator DropCoolDown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canDrop = true;
+        candy.SetActive(true);
     }
 
 }

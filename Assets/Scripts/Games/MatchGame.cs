@@ -11,6 +11,7 @@ public class MatchGame : Games
     //public List<GameObject> bags = new List<GameObject>();
 
     public GameObject hand;
+    public Transform startpos;
     public GameObject candyPrefab;
     public GameObject candy;
 
@@ -28,9 +29,20 @@ public class MatchGame : Games
     {
         base.OnEnable();
         maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
+        int count = 0;
+        for (int i = 0; i < maxBags; i++)
+        {
+            matchBags[i].gameObject.SetActive(true);
+            count++;
+        }
+        for (int i = count; i < matchBags.Count; i++)
+        {
+            matchBags[i].gameObject.SetActive(false);
+        }
+
         maxCandies = maxBags + 1;
         canDrop = true;
-        
+        hand.transform.position = startpos.position;
 
         foreach (MatchBags bag in matchBags)
         {
@@ -188,6 +200,8 @@ public class MatchGame : Games
 
         roomScript.AddtoKidCound(bagsHit);
         roomScript.currentState = MainRoom.GameState.knock;
+        roomScript.SetKnockTimer(0);
+        roomScript.CloseDoor();
         this.gameObject.SetActive(false);
         this.enabled = false;
     }

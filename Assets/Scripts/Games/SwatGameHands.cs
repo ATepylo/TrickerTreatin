@@ -10,7 +10,7 @@ public class SwatGameHands : MonoBehaviour
     public GameObject candyBowl;
     public GameObject candy;
     public Vector2 startPos;
-
+    
     public MainRoom room; 
     [SerializeField]
     private float handSpeed;
@@ -19,12 +19,13 @@ public class SwatGameHands : MonoBehaviour
 
     // Start is called before the first frame update
     void OnEnable()
-    {
+    {        
         startPos = transform.position;
         SetUpHands();
         room = FindObjectOfType<MainRoom>();
-        handSpeed = 1 + room.gameSpeed;
+        handSpeed = 2 + room.gameSpeed;
         game = GetComponentInParent<SwatGame>();
+        
     }
 
     public void SetUpHands()
