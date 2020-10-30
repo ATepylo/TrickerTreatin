@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: a7f90ffe8c9b1d64e8b70f35071e4183
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4786179807615944800
+    second: Egg_Splatter_0
+  - first:
+      213: -398026002523551513
+    second: Egg_Splatter_1
+  - first:
+      213: 4418263506568605680
+    second: Egg_Splatter_2
+  - first:
+      213: -6150536291982603972
+    second: Egg_Splatter_3
+  - first:
+      213: -7849197849069097745
+    second: Egg_Splatter_4
+  - first:
+      213: -8040645891520848205
+    second: Egg_Splatter_5
+  - first:
+      213: 6703925885736692334
+    second: Egg_Splatter_6
+  - first:
+      213: -7691615937135415644
+    second: Egg_Splatter_7
+  - first:
+      213: -8242529414635061799
+    second: Egg_Splatter_8
+  - first:
+      213: -4520211737987396517
+    second: Egg_Splatter_9
+  - first:
+      213: -6979879481136447939
+    second: Egg_Splatter_10
+  - first:
+      213: -69374935528467860
+    second: Egg_Splatter_11
+  - first:
+      213: -3389149286451970799
+    second: Egg_Splatter_12
+  - first:
+      213: 640740046176091953
+    second: Egg_Splatter_13
+  - first:
+      213: -1295784783208275724
+    second: Egg_Splatter_14
+  - first:
+      213: -5252757331415759661
+    second: Egg_Splatter_15
+  - first:
+      213: 112506184011208438
+    second: Egg_Splatter_16
+  - first:
+      213: -995737241602042556
+    second: Egg_Splatter_17
+  - first:
+      213: 3178013975340197315
+    second: Egg_Splatter_18
+  - first:
+      213: -3920120829514595180
+    second: Egg_Splatter_19
+  - first:
+      213: 1833759083890689398
+    second: Egg_Splatter_20
+  - first:
+      213: 8278232570083576436
+    second: Egg_Splatter_21
+  - first:
+      213: -6349069369110855293
+    second: Egg_Splatter_22
+  - first:
+      213: 5276349984233730707
+    second: Egg_Splatter_23
+  - first:
+      213: -1598788752640192699
+    second: Egg_Splatter_24
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Egg_Splatter_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 977
+        width: 87
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffe7111043d05d30800000000000000
+      internalID: 4418263506568605680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 983
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be123fa923e96090800000000000000
+      internalID: -8040645891520848205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_6
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 978
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6aa1ebf211290d50800000000000000
+      internalID: 6703925885736692334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_8
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 755
+        width: 234
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ddf7fd0b27ac9d80800000000000000
+      internalID: -8242529414635061799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_9
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 701
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5cc5b79f5bf441c0800000000000000
+      internalID: -4520211737987396517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_10
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 694
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ef2d7c79c722f90800000000000000
+      internalID: -6979879481136447939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 685
+        width: 95
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62928b1dd7890ff0800000000000000
+      internalID: -69374935528467860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_12
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 412
+        width: 339
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11df2423ea257f0d0800000000000000
+      internalID: -3389149286451970799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_16
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 479
+        width: 107
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6d50d37c3bf8100800000000000000
+      internalID: 112506184011208438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_20
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 94
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67543fecb22d27910800000000000000
+      internalID: 1833759083890689398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_21
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 313
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a86eb99a032e270800000000000000
+      internalID: 8278232570083576436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Egg_Splatter_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fcdf7a916ffc9e0800000000000000
+      internalID: -1598788752640192699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
