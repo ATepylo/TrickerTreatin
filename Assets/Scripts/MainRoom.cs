@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainRoom : MonoBehaviour
 {
@@ -32,6 +33,13 @@ public class MainRoom : MonoBehaviour
     public AudioClip creak;
     public AudioClip close;
 
+    public Text[] rulesText;
+    public Text clickText;
+    public Text startText;
+    public Text endText;
+    public Text scoreBox;
+    public Text[] letters;
+
     //for knock state
     [SerializeField]
     private float knockTimer;
@@ -59,6 +67,18 @@ public class MainRoom : MonoBehaviour
         kidsWCandy = 0;
         gameTimer = 0;
         src = GetComponent<AudioSource>();
+        foreach(var texts in rulesText)
+        {
+            texts.enabled = false;
+        }
+        clickText.enabled = false;
+        startText.enabled = true;
+        endText.enabled = false;
+        scoreBox.enabled = false;
+        foreach(Text letter in letters)
+        {
+            letter.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -76,8 +96,12 @@ public class MainRoom : MonoBehaviour
                 WaitState();
                 break;
             case GameState.play:
+                clickText.enabled = false;
                 break;
             case GameState.end:
+                endText.enabled = false;
+                scoreBox.enabled = false;
+                scoreBox.text = kidsWCandy.ToString();
                 break;
         }
 
@@ -117,8 +141,13 @@ public class MainRoom : MonoBehaviour
 
     private void KnockState()
     {
-        knockTimer += Time.deltaTime;
+        foreach(var texts in rulesText)
+        {
+            texts.enabled = false;
+        }
+        startText.enabled = false;
 
+        knockTimer += Time.deltaTime;
 
         if (knockTimer >= knockRandom)
         {
@@ -130,19 +159,23 @@ public class MainRoom : MonoBehaviour
 
     private void WaitState()
     {
+        clickText.enabled = true;
+
         waitTimer += Time.deltaTime;
         if(Input.GetMouseButtonDown(0))
         {
             //opend door animation
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            
-            if(hit.collider.gameObject.layer == 9)
+            if (hit)
             {
-                //print("start game");
-                //start a random game
-                src.PlayOneShot(creak);
-                //play door open anim
-                StartCoroutine(GameStartDelay());
+                if (hit.collider.gameObject.layer == 9)
+                {
+                    //print("start game");
+                    //start a random game
+                    src.PlayOneShot(creak);
+                    //play door open anim
+                    StartCoroutine(GameStartDelay());
+                }
             }
         }
 
@@ -164,7 +197,9 @@ public class MainRoom : MonoBehaviour
     IEnumerator GameStartDelay()
     {
         yield return new WaitForSeconds(1);
-        GameObject game = miniGames[Random.Range(0, miniGames.Count)];
+        int i = Random.Range(0, miniGames.Count);
+        GameObject game = miniGames[i];
+        rulesText[i].enabled = true;
         game.SetActive(true);
         game.GetComponent<Games>().enabled = true;
         currentState = GameState.play;

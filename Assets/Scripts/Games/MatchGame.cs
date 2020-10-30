@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class MatchGame : Games
@@ -33,24 +34,29 @@ public class MatchGame : Games
         base.OnEnable();
         maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
         int count = 0;
+        foreach (MatchBags bag in matchBags)
+        {
+            bag.letter = letters[Random.Range(0, letters.Length - 1)];
+            //bag.letterText.enabled = false;
+            bag.SetLetter();
+        }
         for (int i = 0; i < maxBags; i++)
         {
             matchBags[i].gameObject.SetActive(true);
+            matchBags[i].letterText.enabled = true;
             count++;
         }
         for (int i = count; i < matchBags.Count; i++)
         {
             matchBags[i].gameObject.SetActive(false);
+            matchBags[i].letterText.enabled = false;
         }
 
         maxCandies = maxBags + 1;
         canDrop = true;
         hand.transform.position = startpos.position;
 
-        foreach (MatchBags bag in matchBags)
-        {
-            bag.letter = letters[Random.Range(0, letters.Length - 1)];
-        }
+        
 
         src = GetComponent<AudioSource>();
     }
@@ -80,6 +86,7 @@ public class MatchGame : Games
                     bagsHit++;
                     src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -109,6 +116,7 @@ public class MatchGame : Games
                     bagsHit++;
                     src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -139,6 +147,7 @@ public class MatchGame : Games
                     bagsHit++;
                     src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -169,6 +178,7 @@ public class MatchGame : Games
                     bagsHit++;
                     src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -218,6 +228,10 @@ public class MatchGame : Games
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();
+        foreach(MatchBags bag in matchBags)
+        {
+            bag.letterText.enabled = false;
+        }
         this.gameObject.SetActive(false);
         this.enabled = false;
     }
