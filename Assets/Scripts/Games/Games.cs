@@ -14,7 +14,7 @@ public class Games : MonoBehaviour
     public int misses;
     public float gameLength;
     public float gameTimer;
-    public int hitsNeeded = 0;
+    public int hitsNeeded = 1;
     public Text timer;
     // Start is called before the first frame update
     public virtual void Start()
@@ -31,10 +31,9 @@ public class Games : MonoBehaviour
         {
             //game over
             roomScript.AddtoKidCound(bagsHit);
-            if (bagsHit < hitsNeeded)
-            {
+            
                 roomScript.EggHouse();
-            }
+            
             roomScript.currentState = MainRoom.GameState.knock;
             roomScript.SetKnockTimer(0);
             roomScript.CloseDoor();

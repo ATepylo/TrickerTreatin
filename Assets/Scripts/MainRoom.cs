@@ -92,6 +92,11 @@ public class MainRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         switch(currentState)
         {
             case GameState.start://used 
