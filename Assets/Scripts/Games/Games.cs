@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Games : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Games : MonoBehaviour
     public int misses;
     public float gameLength;
     public float gameTimer;
+    public int hitsNeeded = 0;
+    public Text timer;
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -23,15 +26,19 @@ public class Games : MonoBehaviour
     public virtual void Update()
     {
         gameTimer -= Time.deltaTime;
+        timer.text = gameTimer.ToString("F1");
         if(gameTimer <= 0)
         {
-
             //game over
             roomScript.AddtoKidCound(bagsHit);
-            roomScript.EggHouse();
+            if (bagsHit < hitsNeeded)
+            {
+                roomScript.EggHouse();
+            }
             roomScript.currentState = MainRoom.GameState.knock;
             roomScript.SetKnockTimer(0);
             roomScript.CloseDoor();
+            timer.enabled = false;
             this.gameObject.SetActive(false);
             this.enabled = false;
         }
@@ -41,12 +48,14 @@ public class Games : MonoBehaviour
     {
         roomScript = FindObjectOfType<MainRoom>();
         misses = 0;
-        gameLength = 30; //change this to use gamespeed;
+        gameLength = 15/roomScript.gameSpeed; //change this to use gamespeed;
         gameTimer = gameLength;
+        timer.enabled = true;
     }
 
     public virtual void OnDisable()
     {
         StopAllCoroutines();
+        timer.enabled = false;
     }
 }

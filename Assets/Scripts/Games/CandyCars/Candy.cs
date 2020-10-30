@@ -8,23 +8,23 @@ namespace CandyCars
     {
         Rigidbody2D rb;
         public float speed = 1f;
-
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
         }
-
         private void Start()
         {
             rb.velocity = new Vector2(0f, speed);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnDisable()
         {
             Destroy(gameObject);
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
+        }        
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
+            //Debug.Log($"Candy Collision: {collision.gameObject.name}");
             Destroy(gameObject);
         }
     }

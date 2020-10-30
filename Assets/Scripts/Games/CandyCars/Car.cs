@@ -10,10 +10,14 @@ namespace CandyCars
         Rigidbody2D rb;
         public float speed = 1f;
         public int direction = 1;
-
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+        }
+       
+        private void OnDisable()
+        {
+            Destroy(gameObject);
         }
 
         public void SetVelocity(int direction)
@@ -28,10 +32,6 @@ namespace CandyCars
             {
                 Destroy(gameObject);
             }
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            
         }
     }
 }

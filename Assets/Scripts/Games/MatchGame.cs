@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class MatchGame : Games
@@ -19,6 +20,9 @@ public class MatchGame : Games
 
     public bool canDrop;
 
+    private AudioSource src;
+    public AudioClip plop;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -30,24 +34,31 @@ public class MatchGame : Games
         base.OnEnable();
         maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
         int count = 0;
+        foreach (MatchBags bag in matchBags)
+        {
+            bag.letter = letters[Random.Range(0, letters.Length - 1)];
+            //bag.letterText.enabled = false;
+            bag.SetLetter();
+        }
         for (int i = 0; i < maxBags; i++)
         {
             matchBags[i].gameObject.SetActive(true);
+            matchBags[i].letterText.enabled = true;
             count++;
         }
         for (int i = count; i < matchBags.Count; i++)
         {
             matchBags[i].gameObject.SetActive(false);
+            matchBags[i].letterText.enabled = false;
         }
 
         maxCandies = maxBags + 1;
         canDrop = true;
         hand.transform.position = startpos.position;
 
-        foreach (MatchBags bag in matchBags)
-        {
-            bag.letter = letters[Random.Range(0, letters.Length - 1)];
-        }
+        
+
+        src = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,10 +80,13 @@ public class MatchGame : Games
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "w")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "w")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    src.PlayOneShot(plop);
+                    candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -96,10 +110,13 @@ public class MatchGame : Games
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "a")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "a")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    src.PlayOneShot(plop);
+                    candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -123,10 +140,14 @@ public class MatchGame : Games
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "s")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "s")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    src.PlayOneShot(plop);
+                    candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -150,10 +171,14 @@ public class MatchGame : Games
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                if (hit.collider.gameObject.layer == 11 && hit.collider.GetComponent<MatchBags>().letter == "d")
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
+
+                if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "d")
                 {
                     bagsHit++;
-                    hit.collider.gameObject.SetActive(false);
+                    src.PlayOneShot(plop);
+                    candyHit.collider.gameObject.SetActive(false);
+                    candyHit.collider.gameObject.GetComponent<MatchBags>().letterText.enabled = false;
                 }
                 else
                 {
@@ -199,9 +224,14 @@ public class MatchGame : Games
         }
 
         roomScript.AddtoKidCound(bagsHit);
+        roomScript.SetKnockRandom(Random.Range(3, 5));
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();
+        foreach(MatchBags bag in matchBags)
+        {
+            bag.letterText.enabled = false;
+        }
         this.gameObject.SetActive(false);
         this.enabled = false;
     }

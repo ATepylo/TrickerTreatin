@@ -24,6 +24,12 @@ public class SwatGame : Games
     private float horizontal;
     private float vertical;
 
+    private AudioSource src;
+    public AudioClip slap;
+    public AudioClip plop;
+
+    public int bagHitCount;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -54,6 +60,15 @@ public class SwatGame : Games
         leftHandSpeed = 5;
         leftHand.transform.position = LHstart.position;
         rightHand.transform.position = RHstart.position;
+        //foreach(GameObject obj in kidHands)
+        //{
+        //    if(obj.activeSelf && Vector3.Distance(obj.transform.position, obj.GetComponent<SwatGameHands>().startPos) > 0.5f)
+        //    {
+        //        obj.GetComponent<SwatGameHands>().SetUpHands();
+        //    }
+        //}
+        src = GetComponent<AudioSource>();
+        bagHitCount = 0;
     }
 
     // Update is called once per frame
@@ -76,23 +91,23 @@ public class SwatGame : Games
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 //print("try raycast");
-                RaycastHit2D candyHit = Physics2D.Raycast(leftHand.transform.position, Vector3.forward);
+                RaycastHit2D candyHit = Physics2D.Raycast(candy.transform.position, Vector3.forward);
                 if (candyHit.collider)
                 {
                     if (candyHit.collider.gameObject.layer == 11)
                     {
                         print("hit bag");
                         //add score and remove bag
+                        src.PlayOneShot(plop);
                         bagsHit++;
                         candyHit.collider.gameObject.SetActive(false);
                         int i = 0;
-                        int count = 0;
                         for (int j = 0; j < bags.Count; j++)
                         {
                             if (bags[j] == candyHit.collider.gameObject)
                             {
                                 i = j;
-                                count++;
+                                bagHitCount++;
                             }
                         }
                         kidHands[i].SetActive(false);
@@ -104,7 +119,7 @@ public class SwatGame : Games
                         //        count++;
                         //    }
                         //}
-                        if (count == maxBags)
+                        if (bagHitCount == maxBags)
                         {
                             StartCoroutine(EndMiniGame());
                         }
@@ -131,6 +146,7 @@ public class SwatGame : Games
         {
             if(hit.collider.gameObject.layer == 17)
             {
+                src.PlayOneShot(slap);
                 hit.collider.GetComponent<SwatGameHands>().SetUpHands();
             }
         }
@@ -172,9 +188,15 @@ public class SwatGame : Games
         }
 
         roomScript.AddtoKidCound(bagsHit);
+        roomScript.SetKnockRandom(Random.Range(3, 5));
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();
+        foreach(GameObject obj in kidHands)
+        {
+            obj.SetActive(false);
+        }
+
         this.gameObject.SetActive(false);
         this.enabled = false;
     }
