@@ -14,15 +14,12 @@ namespace CandyCars
         public Direction direction = Direction.RIGHT;
         public GameObject carPrefab;
 
-        
-        public override void Activate()
+        private void OnEnable()
         {
-            base.Activate();
             c = StartCoroutine(Spawn(Random.Range(spawnTimeMin, spawnTimeMax)));
         }
-        public override void Deactivate()
+        private void OnDisable()
         {
-            base.Deactivate();
             StopCoroutine(c);
         }
 
@@ -36,10 +33,12 @@ namespace CandyCars
                 yield return null;
             }
 
-            GameObject car = Instantiate(carPrefab, transform.position, Quaternion.identity);
-            //flip car???
+            GameObject car = Instantiate(carPrefab, transform);
+            car.transform.position = transform.position;
             int dir = direction == Direction.RIGHT ? 1 : -1;
             car.GetComponent<Car>().SetVelocity(dir);
+            //flip car sprite depending on direction
+            car.transform.localScale = new Vector3(1, 1, dir);
             c = StartCoroutine(Spawn(Random.Range(spawnTimeMin, spawnTimeMax)));
         }
     }

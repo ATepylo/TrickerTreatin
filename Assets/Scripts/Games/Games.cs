@@ -25,7 +25,6 @@ public class Games : MonoBehaviour
         gameTimer -= Time.deltaTime;
         if(gameTimer <= 0)
         {
-
             //game over
             roomScript.AddtoKidCound(bagsHit);
             roomScript.EggHouse();
