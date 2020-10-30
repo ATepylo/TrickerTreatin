@@ -13,22 +13,28 @@ using System;
 namespace CandyCars
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class TrickOrTreator : GamePiece
+    public class TrickOrTreator : MonoBehaviour
     {
+        private Vector3 startPosition = Vector3.zero;
         public Transform left, right;
         public int level = 1;
         public int speedMax = 10;
         public int waitMax = 4;
 
-        public override void Activate()
+        private void Awake()
         {
-            base.Activate();
-            level = 1;
+            startPosition = transform.position;
+            Debug.Log("StartPos: " + startPosition);
+        }
+        private void OnEnable()
+        {
+            //don't reset levels for now
+            //level = 1;
+            transform.position = startPosition;
             c = StartCoroutine(Move());
         }
-        public override void Deactivate()
+        private void OnDisable()
         {
-            base.Deactivate();
             StopCoroutine(c);
         }
 
@@ -69,7 +75,7 @@ namespace CandyCars
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (isPlay && collision.gameObject.tag == "Candy")
+            if (collision.gameObject.tag == "Candy")
             {
                 COLLECTEDCANDY();
                 //up level
