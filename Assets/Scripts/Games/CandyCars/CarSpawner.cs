@@ -6,7 +6,7 @@ using UnityEngine;
 public enum Direction { LEFT, RIGHT }
 namespace CandyCars
 {
-    public class CarSpawner : MonoBehaviour
+    public class CarSpawner : GamePiece
     {
         //spawn cars in the direction specified
         public float spawnTimeMin = 1f;
@@ -14,9 +14,16 @@ namespace CandyCars
         public Direction direction = Direction.RIGHT;
         public GameObject carPrefab;
 
-        private void Start()
+        
+        public override void Activate()
         {
+            base.Activate();
             c = StartCoroutine(Spawn(Random.Range(spawnTimeMin, spawnTimeMax)));
+        }
+        public override void Deactivate()
+        {
+            base.Deactivate();
+            StopCoroutine(c);
         }
 
         Coroutine c = null;
