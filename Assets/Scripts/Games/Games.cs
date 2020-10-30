@@ -41,7 +41,7 @@ public class Games : MonoBehaviour
     {
         roomScript = FindObjectOfType<MainRoom>();
         misses = 0;
-        gameLength = 30; //change this to use gamespeed;
+        gameLength = 15/roomScript.gameSpeed; //change this to use gamespeed;
         gameTimer = gameLength;
     }
 

@@ -24,6 +24,12 @@ public class SwatGame : Games
     private float horizontal;
     private float vertical;
 
+    private AudioSource src;
+    public AudioClip slap;
+    public AudioClip plop;
+
+    public int bagHitCount;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -54,6 +60,8 @@ public class SwatGame : Games
         leftHandSpeed = 5;
         leftHand.transform.position = LHstart.position;
         rightHand.transform.position = RHstart.position;
+        src = GetComponent<AudioSource>();
+        bagHitCount = 0;
     }
 
     // Update is called once per frame
@@ -83,16 +91,16 @@ public class SwatGame : Games
                     {
                         print("hit bag");
                         //add score and remove bag
+                        src.PlayOneShot(plop);
                         bagsHit++;
                         candyHit.collider.gameObject.SetActive(false);
                         int i = 0;
-                        int count = 0;
                         for (int j = 0; j < bags.Count; j++)
                         {
                             if (bags[j] == candyHit.collider.gameObject)
                             {
                                 i = j;
-                                count++;
+                                bagHitCount++;
                             }
                         }
                         kidHands[i].SetActive(false);
@@ -104,7 +112,7 @@ public class SwatGame : Games
                         //        count++;
                         //    }
                         //}
-                        if (count == maxBags)
+                        if (bagHitCount == maxBags)
                         {
                             StartCoroutine(EndMiniGame());
                         }
@@ -131,6 +139,7 @@ public class SwatGame : Games
         {
             if(hit.collider.gameObject.layer == 17)
             {
+                src.PlayOneShot(slap);
                 hit.collider.GetComponent<SwatGameHands>().SetUpHands();
             }
         }
@@ -172,6 +181,7 @@ public class SwatGame : Games
         }
 
         roomScript.AddtoKidCound(bagsHit);
+        roomScript.SetKnockRandom(Random.Range(3, 5));
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();

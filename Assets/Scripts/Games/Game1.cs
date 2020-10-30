@@ -21,6 +21,10 @@ public class Game1 : Games
 
     private bool failedGame;
 
+    private AudioSource src;
+    public AudioClip plop;
+
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -49,6 +53,8 @@ public class Game1 : Games
         candiesSpawned = 1;
         bagsHit = 0;
         failedGame = false;
+        src = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -113,6 +119,11 @@ public class Game1 : Games
         }
     }
 
+    public void PlaySound()
+    {
+        src.PlayOneShot(plop);
+    }
+
     public override void OnDisable()
     {
         base.OnDisable();
@@ -146,6 +157,7 @@ public class Game1 : Games
             roomScript.EggHouse();
         }
         roomScript.AddtoKidCound(bagsHit);
+        roomScript.SetKnockRandom(Random.Range(3, 5));
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();

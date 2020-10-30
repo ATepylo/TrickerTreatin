@@ -12,6 +12,8 @@ public class Candy1 : MonoBehaviour
 
     private Game1 game;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Candy1 : MonoBehaviour
     {
         fallSpeed = 10;
         game = GetComponentInParent<Game1>();
+
     }
 
     // Update is called once per frame
@@ -44,6 +47,7 @@ public class Candy1 : MonoBehaviour
         if(collision.gameObject.layer == 11 && currentState == HoldState.released)
         {
             game.ScoreCandy();
+            game.PlaySound();
             //collision.gameObject.GetComponent<Bags>().RemoveBag();
             collision.gameObject.SetActive(false);
             Destroy(this.gameObject);

@@ -19,6 +19,9 @@ public class MatchGame : Games
 
     public bool canDrop;
 
+    private AudioSource src;
+    public AudioClip plop;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -48,6 +51,8 @@ public class MatchGame : Games
         {
             bag.letter = letters[Random.Range(0, letters.Length - 1)];
         }
+
+        src = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,6 +78,7 @@ public class MatchGame : Games
                 if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "w")
                 {
                     bagsHit++;
+                    src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
                 }
                 else
@@ -101,6 +107,7 @@ public class MatchGame : Games
                 if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "a")
                 {
                     bagsHit++;
+                    src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
                 }
                 else
@@ -130,6 +137,7 @@ public class MatchGame : Games
                 if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "s")
                 {
                     bagsHit++;
+                    src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
                 }
                 else
@@ -159,6 +167,7 @@ public class MatchGame : Games
                 if (candyHit.collider.gameObject.layer == 11 && candyHit.collider.GetComponent<MatchBags>().letter == "d")
                 {
                     bagsHit++;
+                    src.PlayOneShot(plop);
                     candyHit.collider.gameObject.SetActive(false);
                 }
                 else
@@ -205,6 +214,7 @@ public class MatchGame : Games
         }
 
         roomScript.AddtoKidCound(bagsHit);
+        roomScript.SetKnockRandom(Random.Range(3, 5));
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();

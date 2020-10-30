@@ -26,6 +26,11 @@ public class MainRoom : MonoBehaviour
         kidsWCandy += i;
     }
 
+    private AudioSource src;
+    public AudioClip knock;
+    public AudioClip splat;
+    public AudioClip creak;
+    public AudioClip close;
 
     //for knock state
     [SerializeField]
@@ -36,6 +41,10 @@ public class MainRoom : MonoBehaviour
     }
     [SerializeField]
     private float knockRandom;
+    public void SetKnockRandom(float f)
+    {
+        knockRandom = Random.Range(2, 5);
+    }
 
     //for wait time
     [SerializeField]
@@ -49,6 +58,7 @@ public class MainRoom : MonoBehaviour
         waitTimer = 0;
         kidsWCandy = 0;
         gameTimer = 0;
+        src = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -91,6 +101,7 @@ public class MainRoom : MonoBehaviour
 
     public void EggHouse()
     {
+        src.PlayOneShot(splat);
         eggs++;
     }
 
@@ -111,7 +122,7 @@ public class MainRoom : MonoBehaviour
 
         if (knockTimer >= knockRandom)
         {
-            //play knock sound
+            src.PlayOneShot(knock);
             waitTimer = 0;
             currentState = GameState.wait;
         }
@@ -126,17 +137,16 @@ public class MainRoom : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             
             if(hit.collider.gameObject.layer == 9)
-            {               
-                print("start game");
+            {
+                //print("start game");
                 //start a random game
-                GameObject game = miniGames[Random.Range(0, miniGames.Count)];
-                game.SetActive(true);
-                game.GetComponent<Games>().enabled = true;
-                currentState = GameState.play;
+                src.PlayOneShot(creak);
+                //play door open anim
+                StartCoroutine(GameStartDelay());
             }
         }
 
-        if(waitTimer >= (15 / gameSpeed))
+        if(waitTimer >= (10 / gameSpeed))
         {
             EggHouse();
             knockTimer = 0;
@@ -148,6 +158,16 @@ public class MainRoom : MonoBehaviour
     public void CloseDoor()
     {
         //close door animation
+        src.PlayOneShot(close);
+    }
+
+    IEnumerator GameStartDelay()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject game = miniGames[Random.Range(0, miniGames.Count)];
+        game.SetActive(true);
+        game.GetComponent<Games>().enabled = true;
+        currentState = GameState.play;
     }
 
     //used to tell kyles characters what face to make

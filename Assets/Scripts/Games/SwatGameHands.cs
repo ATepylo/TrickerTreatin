@@ -23,7 +23,7 @@ public class SwatGameHands : MonoBehaviour
         startPos = transform.position;
         SetUpHands();
         room = FindObjectOfType<MainRoom>();
-        handSpeed = 2 + room.gameSpeed;
+        handSpeed = 3 * room.gameSpeed;
         game = GetComponentInParent<SwatGame>();
         
     }
