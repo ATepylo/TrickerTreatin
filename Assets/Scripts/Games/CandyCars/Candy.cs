@@ -9,6 +9,20 @@ namespace CandyCars
         Rigidbody2D rb;
         public float speed = 1f;
 
+        private void OnEnable()
+        {
+            Timer.DONE += Remove;
+        }
+        private void OnDisable()
+        {
+            Timer.DONE -= Remove;
+        }
+
+        private void Remove()
+        {
+            Destroy(gameObject);
+        }
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -21,11 +35,7 @@ namespace CandyCars
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Destroy(gameObject);
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            Destroy(gameObject);
+            Remove();
         }
     }
 }

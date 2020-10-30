@@ -5,11 +5,25 @@ using UnityEngine;
 
 namespace CandyCars
 {
-    public class Car : MonoBehaviour
+    public class Car : GamePiece
     {
         Rigidbody2D rb;
         public float speed = 1f;
         public int direction = 1;
+
+        private void OnEnable()
+        {
+            Timer.DONE += Remove;
+        }
+        private void OnDisable()
+        {
+            Timer.DONE -= Remove;
+        }
+
+        private void Remove()
+        {
+            Destroy(gameObject);
+        }
 
         private void Awake()
         {
@@ -26,12 +40,8 @@ namespace CandyCars
             Debug.Log($"Tag: {collision.transform.tag}");
             if (collision.transform.tag == "Boundary")
             {
-                Destroy(gameObject);
+                Remove();
             }
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            
         }
     }
 }
