@@ -25,10 +25,13 @@ public class Games : MonoBehaviour
         gameTimer -= Time.deltaTime;
         if(gameTimer <= 0)
         {
-            print("???");
+
             //game over
+            roomScript.AddtoKidCound(bagsHit);
             roomScript.EggHouse();
             roomScript.currentState = MainRoom.GameState.knock;
+            roomScript.SetKnockTimer(0);
+            roomScript.CloseDoor();
             this.gameObject.SetActive(false);
             this.enabled = false;
         }

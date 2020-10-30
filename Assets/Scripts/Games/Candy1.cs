@@ -20,7 +20,7 @@ public class Candy1 : MonoBehaviour
 
     private void OnEnable()
     {
-        fallSpeed = 1;
+        fallSpeed = 10;
         game = GetComponentInParent<Game1>();
     }
 
@@ -44,7 +44,7 @@ public class Candy1 : MonoBehaviour
         if(collision.gameObject.layer == 11 && currentState == HoldState.released)
         {
             game.ScoreCandy();
-            collision.gameObject.GetComponent<Bags>().RemoveBag();
+            //collision.gameObject.GetComponent<Bags>().RemoveBag();
             collision.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }

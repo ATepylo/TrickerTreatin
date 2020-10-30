@@ -12,6 +12,9 @@ public class Game1 : Games
 
     public GameObject candyPrefab;
     GameObject candy;
+    public GameObject candyPos;
+
+    public List<GameObject> bags = new List<GameObject>();
 
     [SerializeField]
     private float handSpeed;
@@ -29,14 +32,20 @@ public class Game1 : Games
         base.OnEnable();
         //reset game on enable
         maxBags = Mathf.FloorToInt(roomScript.gameSpeed);
-        //instatiate bags here, once we have sprites
-        //for(int i = 0; 1 < maxBags; i++)
-        //{
-        //    Instantiate()
-        //}
+        int count = 0;
+        for (int i = 0; i < maxBags; i++)
+        {
+            bags[i].SetActive(true);
+            count++;
+        }
+        for(int i = count; i < bags.Count; i++)
+        {
+            bags[i].SetActive(false);
+        }
+       
         maxCandies = maxBags + 1;
-        handSpeed = 1 * roomScript.gameSpeed;
-        candy = Instantiate(candyPrefab, hand.transform);
+        handSpeed = 5 * roomScript.gameSpeed;
+        candy = Instantiate(candyPrefab, candyPos.transform);
         candiesSpawned = 1;
         bagsHit = 0;
         failedGame = false;
@@ -49,7 +58,7 @@ public class Game1 : Games
         switch(currentDir)
         {
             case MoveDir.left:
-                if(hand.transform.position.x >= transform.position.x - 5) //replace with actual numbers once sprites come in
+                if(hand.transform.position.x >= transform.position.x + 4) //replace with actual numbers once sprites come in
                 {
                     float x = hand.transform.position.x;
                     x -= handSpeed * Time.deltaTime;
@@ -58,7 +67,7 @@ public class Game1 : Games
                 else { currentDir = MoveDir.right; }
                 break;
             case MoveDir.right:
-                if (hand.transform.position.x <= transform.position.x + 5)
+                if (hand.transform.position.x <= transform.position.x + 18)
                 {
                     float x = hand.transform.position.x;
                     x += handSpeed * Time.deltaTime;
@@ -96,7 +105,7 @@ public class Game1 : Games
 
     public void NewCandy()
     {
-        candy = Instantiate(candyPrefab, hand.transform);
+        candy = Instantiate(candyPrefab, candyPos.transform);
         candiesSpawned++;
         if(candiesSpawned == maxCandies)
         {
@@ -107,6 +116,11 @@ public class Game1 : Games
     public override void OnDisable()
     {
         base.OnDisable();
+        if(candy)
+        {
+            //candy = null;
+            Destroy(candy);
+        }
     }
 
     public void ScoreCandy()
@@ -133,6 +147,8 @@ public class Game1 : Games
         }
         roomScript.AddtoKidCound(bagsHit);
         roomScript.currentState = MainRoom.GameState.knock;
+        roomScript.SetKnockTimer(0);
+        roomScript.CloseDoor();
         this.gameObject.SetActive(false);
         this.enabled = false;
     }

@@ -14,6 +14,9 @@ public class MainRoom : MonoBehaviour
 
     public List<GameObject> miniGames;
 
+    [SerializeField]
+    private float gameTimer;
+
     public float gameSpeed;
 
     [SerializeField]
@@ -27,6 +30,10 @@ public class MainRoom : MonoBehaviour
     //for knock state
     [SerializeField]
     private float knockTimer;
+    public void SetKnockTimer(float f)
+    {
+        knockTimer = f;
+    }
     [SerializeField]
     private float knockRandom;
 
@@ -41,6 +48,7 @@ public class MainRoom : MonoBehaviour
         knockTimer = 0;
         waitTimer = 0;
         kidsWCandy = 0;
+        gameTimer = 0;
     }
 
     // Update is called once per frame
@@ -67,6 +75,18 @@ public class MainRoom : MonoBehaviour
         {
             currentState = GameState.end;
         }
+
+        gameTimer += Time.deltaTime;
+        if(gameTimer > 150)
+        {
+            gameSpeed = 3;
+        }
+        else if(gameTimer > 75)
+        {
+            gameSpeed = 2;
+        }
+        else { gameSpeed = 1; }
+
     }
 
     public void EggHouse()
@@ -102,26 +122,32 @@ public class MainRoom : MonoBehaviour
         waitTimer += Time.deltaTime;
         if(Input.GetMouseButtonDown(0))
         {
+            //opend door animation
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             
             if(hit.collider.gameObject.layer == 9)
             {               
                 print("start game");
                 //start a random game
-                GameObject game = miniGames[Random.Range(0, miniGames.Count - 1)];
+                GameObject game = miniGames[Random.Range(0, miniGames.Count)];
                 game.SetActive(true);
                 game.GetComponent<Games>().enabled = true;
                 currentState = GameState.play;
             }
         }
 
-        if(waitTimer >= (10 - gameSpeed))
+        if(waitTimer >= (15 / gameSpeed))
         {
             EggHouse();
             knockTimer = 0;
             knockRandom = Random.Range(3, 5);
             currentState = GameState.knock;
         }
+    }
+
+    public void CloseDoor()
+    {
+        //close door animation
     }
 
     //used to tell kyles characters what face to make
