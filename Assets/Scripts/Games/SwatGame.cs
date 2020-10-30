@@ -60,6 +60,13 @@ public class SwatGame : Games
         leftHandSpeed = 5;
         leftHand.transform.position = LHstart.position;
         rightHand.transform.position = RHstart.position;
+        //foreach(GameObject obj in kidHands)
+        //{
+        //    if(obj.activeSelf && Vector3.Distance(obj.transform.position, obj.GetComponent<SwatGameHands>().startPos) > 0.5f)
+        //    {
+        //        obj.GetComponent<SwatGameHands>().SetUpHands();
+        //    }
+        //}
         src = GetComponent<AudioSource>();
         bagHitCount = 0;
     }
@@ -185,6 +192,11 @@ public class SwatGame : Games
         roomScript.currentState = MainRoom.GameState.knock;
         roomScript.SetKnockTimer(0);
         roomScript.CloseDoor();
+        foreach(GameObject obj in kidHands)
+        {
+            obj.SetActive(false);
+        }
+
         this.gameObject.SetActive(false);
         this.enabled = false;
     }

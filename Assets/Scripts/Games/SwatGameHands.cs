@@ -9,7 +9,7 @@ public class SwatGameHands : MonoBehaviour
 
     public GameObject candyBowl;
     public GameObject candy;
-    public Vector2 startPos;
+    public Transform startPos;
     
     public MainRoom room; 
     [SerializeField]
@@ -20,7 +20,7 @@ public class SwatGameHands : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {        
-        startPos = transform.position;
+        //startPos = transform.position;
         SetUpHands();
         room = FindObjectOfType<MainRoom>();
         handSpeed = 3 * room.gameSpeed;
@@ -30,7 +30,7 @@ public class SwatGameHands : MonoBehaviour
 
     public void SetUpHands()
     {
-        transform.position = startPos;
+        transform.position = startPos.position;
         currentState = HandState.wait;
         candy.SetActive(false);
         StartCoroutine(WaitTimer());        
@@ -52,8 +52,8 @@ public class SwatGameHands : MonoBehaviour
             case HandState.wait:
                 break;
             case HandState.comeBack:
-                transform.position = Vector3.MoveTowards(transform.position, startPos, handSpeed * Time.deltaTime);
-                if(Vector3.Distance(transform.position, startPos) <= 0.2f && candy.activeSelf)
+                transform.position = Vector3.MoveTowards(transform.position, startPos.position, handSpeed * Time.deltaTime);
+                if(Vector3.Distance(transform.position, startPos.position) <= 0.2f && candy.activeSelf)
                 {
                     game.DisableHands(this.gameObject);
                 }

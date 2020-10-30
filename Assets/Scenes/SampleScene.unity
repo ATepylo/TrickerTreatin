@@ -673,7 +673,7 @@ Transform:
   m_Children:
   - {fileID: 693746740}
   m_Father: {fileID: 944296850}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &196896198
 MonoBehaviour:
@@ -690,7 +690,7 @@ MonoBehaviour:
   currentState: 1
   candyBowl: {fileID: 945149436}
   candy: {fileID: 693746739}
-  startPos: {x: 0, y: 0}
+  startPos: {fileID: 781608413}
   room: {fileID: 0}
   handSpeed: 0
 --- !u!95 &196896199
@@ -2071,7 +2071,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944296850}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &608765279 stripped
 Transform:
@@ -2445,6 +2445,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97b7b6b009812443809be1bfc805f73, type: 3}
+--- !u!1 &781608412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781608413}
+  m_Layer: 17
+  m_Name: khstar1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781608413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781608412}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.0699997, y: 3.45, z: -2}
+  m_LocalScale: {x: 0.5, y: 0.52, z: 1}
+  m_Children: []
+  m_Father: {fileID: 944296850}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786365056 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8108314040477998665, guid: 5d6218e4406a89d46a7ee2dee48092d5,
@@ -2538,6 +2568,36 @@ Transform:
   - {fileID: 1426328430}
   m_Father: {fileID: 2023183496}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &815087319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815087320}
+  m_Layer: 17
+  m_Name: khstart3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &815087320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815087319}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.45, y: 3.15, z: -2}
+  m_LocalScale: {x: 0.5, y: 0.52, z: 1}
+  m_Children: []
+  m_Father: {fileID: 944296850}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &823369526
 PrefabInstance:
@@ -3072,6 +3132,9 @@ Transform:
   - {fileID: 1660370438}
   - {fileID: 1119319858}
   - {fileID: 1910789083}
+  - {fileID: 781608413}
+  - {fileID: 1494944024}
+  - {fileID: 815087320}
   - {fileID: 196896197}
   - {fileID: 2049936808}
   - {fileID: 1316570428}
@@ -3232,7 +3295,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 944296850}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &945149438
 SpriteRenderer:
@@ -3629,7 +3692,7 @@ MonoBehaviour:
   currentState: 1
   candyBowl: {fileID: 1437553716}
   candy: {fileID: 478773994}
-  startPos: {x: 0, y: 0}
+  startPos: {fileID: 0}
   room: {fileID: 0}
   handSpeed: 0
 --- !u!4 &1088190180 stripped
@@ -4302,7 +4365,7 @@ Transform:
   m_Children:
   - {fileID: 1648670266}
   m_Father: {fileID: 944296850}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1316570429
 MonoBehaviour:
@@ -4319,7 +4382,7 @@ MonoBehaviour:
   currentState: 1
   candyBowl: {fileID: 945149436}
   candy: {fileID: 1648670265}
-  startPos: {x: 0, y: 0}
+  startPos: {fileID: 815087320}
   room: {fileID: 0}
   handSpeed: 0
 --- !u!95 &1316570430
@@ -4993,6 +5056,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1494944023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1494944024}
+  m_Layer: 17
+  m_Name: khstart2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1494944024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494944023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.1300006, y: 4.17, z: -2}
+  m_LocalScale: {x: 0.5, y: 0.52, z: 1}
+  m_Children: []
+  m_Father: {fileID: 944296850}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1507468752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5405,7 +5498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944296850}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1636700164
 GameObject:
@@ -6411,11 +6504,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c2d9e4839a638f043aa8ba0b2552018a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7699,7 +7792,7 @@ Transform:
   m_Children:
   - {fileID: 177554926}
   m_Father: {fileID: 944296850}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2049936809
 MonoBehaviour:
@@ -7716,7 +7809,7 @@ MonoBehaviour:
   currentState: 1
   candyBowl: {fileID: 945149436}
   candy: {fileID: 177554925}
-  startPos: {x: 0, y: 0}
+  startPos: {fileID: 1494944024}
   room: {fileID: 0}
   handSpeed: 0
 --- !u!95 &2049936810
@@ -9231,7 +9324,7 @@ MonoBehaviour:
   gameTimer: 0
   hand: {fileID: 7415229750846215910}
   currentDir: 0
-  candyPrefab: {fileID: 5844897581400567677, guid: 0286f0e3daae45c4eaee0477466d2178,
+  candyPrefab: {fileID: 8820557964430360052, guid: addd90b3a2b01a6409682ded242da401,
     type: 3}
   candyPos: {fileID: 1260549499}
   bags:
