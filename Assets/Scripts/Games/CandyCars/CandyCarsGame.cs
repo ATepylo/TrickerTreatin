@@ -9,6 +9,7 @@ public class CandyCarsGame : Games
     {
         base.OnEnable();
         TrickOrTreator.COLLECTEDCANDY += Point;
+        hitsNeeded = 3;
     }
 
     public override void OnDisable()

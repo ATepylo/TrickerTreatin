@@ -12,6 +12,7 @@ public class MainRoom : MonoBehaviour
 
     [SerializeField]
     private int eggs;
+    public List<GameObject> eggys;
 
     public List<GameObject> miniGames;
 
@@ -39,6 +40,7 @@ public class MainRoom : MonoBehaviour
     public Text endText;
     public Text scoreBox;
     public Text[] letters;
+    public Text timer;
 
     //for knock state
     [SerializeField]
@@ -79,6 +81,12 @@ public class MainRoom : MonoBehaviour
         {
             letter.enabled = false;
         }
+
+        foreach(GameObject egg in eggys)
+        {
+            egg.SetActive(false);
+        }
+        timer.enabled = false;
     }
 
     // Update is called once per frame
@@ -99,9 +107,13 @@ public class MainRoom : MonoBehaviour
                 clickText.enabled = false;
                 break;
             case GameState.end:
-                endText.enabled = false;
-                scoreBox.enabled = false;
+                endText.enabled = true;
+                scoreBox.enabled = true;
                 scoreBox.text = kidsWCandy.ToString();
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    Application.Quit();
+                }
                 break;
         }
 
@@ -127,6 +139,7 @@ public class MainRoom : MonoBehaviour
     {
         src.PlayOneShot(splat);
         eggs++;
+        eggys[eggs-1].SetActive(true);
     }
 
 
