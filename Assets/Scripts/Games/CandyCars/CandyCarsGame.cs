@@ -16,6 +16,9 @@ public class CandyCarsGame : Games
         //base.OnDisable();
         Debug.Log($"<color=red>Final Score: {bagsHit}</color>");
         TrickOrTreator.COLLECTEDCANDY -= Point;
+        roomScript.currentState = MainRoom.GameState.knock;
+        roomScript.SetKnockTimer(0);
+        roomScript.CloseDoor();
     }
 
     private void Point()

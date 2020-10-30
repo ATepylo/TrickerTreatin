@@ -146,7 +146,7 @@ public class MainRoom : MonoBehaviour
             texts.enabled = false;
         }
         startText.enabled = false;
-
+        clickText.enabled = false;
         knockTimer += Time.deltaTime;
 
         if (knockTimer >= knockRandom)
