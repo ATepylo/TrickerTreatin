@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19280615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.429806, y: -5.6221104, z: 0}
+  m_LocalPosition: {x: -4.5, y: -3.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1436,7 +1436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501168013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.85, y: -6.19, z: 0}
+  m_LocalPosition: {x: -35.44, y: -6.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2907,6 +2907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 123.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373779796329566641, guid: 62055e25817611f48b13fb5805df0374,
+        type: 3}
+      propertyPath: m_Text
+      value: Click on the door to answer.
       objectReference: {fileID: 0}
     - target: {fileID: 7373779796329566642, guid: 62055e25817611f48b13fb5805df0374,
         type: 3}
